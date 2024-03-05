@@ -14,6 +14,7 @@ import Supplier from '@/components/Supplier.vue'
 .suppliers {
   display: flex;
   flex-direction: column;
+  margin: 0 2rem;
 }
 
 </style>

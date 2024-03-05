@@ -5,7 +5,7 @@ const checkedAt = new Date()
 </script>
 
 <template>
-  <div>
+  <div class="supplier">
     <h1 class="green">{{ name }}</h1>
     <h3 v-if="status" class="green">En stock</h3>
     <h3 v-else class="red">Indisponible</h3>
@@ -14,8 +14,9 @@ const checkedAt = new Date()
 </template>
 
 <style scoped>
-.green {
-  color: hsla(160, 100%, 37%, 1);
+.supplier {
+  border: solid var(--color-text);
+  padding: 0 0 1rem 1rem;
 }
 
 .red {

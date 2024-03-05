@@ -5,5 +5,7 @@
 </template>
 
 <style>
-
+.map {
+  margin: 0 2rem;
+}
 </style>
