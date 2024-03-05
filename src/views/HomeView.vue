@@ -1,9 +1,9 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import SuppliersView from '@/views/SuppliersView.vue'
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <SuppliersView />
   </main>
 </template>
