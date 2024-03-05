@@ -1,15 +1,19 @@
+<script setup>
+import Supplier from '@/components/Supplier.vue'
+</script>
+
 <template>
   <div class="suppliers">
     <h1>Liste des fournisseurs</h1>
+    <Supplier />
   </div>
 </template>
 
 <style>
-@media (min-width: 1024px) {
-  .suppliers {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
+
+.suppliers {
+  display: flex;
+  flex-direction: column;
 }
+
 </style>
