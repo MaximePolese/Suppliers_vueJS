@@ -2,23 +2,22 @@
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 
-function onSuppliersListClick(){
+function onSuppliersListClick() {
 
 }
-function onMapClick(){
+
+function onMapClick() {
 
 }
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
+    <RouterLink to="/"><img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" /></RouterLink>
     <div class="wrapper">
       <HelloWorld msg="Que voulez vous faire ?" />
-
       <nav>
-        <RouterLink to="/">Voir la liste des fournisseurs</RouterLink>
+        <RouterLink to="/suppliers">Voir la liste des fournisseurs</RouterLink>
         <RouterLink to="/map">Voir la carte</RouterLink>
       </nav>
     </div>
@@ -35,7 +34,7 @@ header {
 
 .logo {
   display: block;
-  margin: 0 auto 2rem;
+  margin: 1rem;
 }
 
 nav {
@@ -68,10 +67,6 @@ nav a:first-of-type {
     display: flex;
     place-items: center;
     padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
   }
 
   header .wrapper {
