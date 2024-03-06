@@ -5,9 +5,9 @@ import HelloWorld from './components/HelloWorld.vue'
 
 <template>
   <header>
-    <RouterLink to="/"><img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" /></RouterLink>
+    <RouterLink to="/"><img alt="Vue logo" class="logo" src="https://swaggrabber.com/wp-content/uploads/2023/05/Baby-yoda-1.svg" width="125" height="125" /></RouterLink>
     <div class="wrapper">
-      <HelloWorld msg="Que voulez vous faire ?" />
+      <HelloWorld msg="De la spiruline, tu acheteras !" />
       <nav>
         <RouterLink to="/suppliers">Voir la liste des fournisseurs</RouterLink>
         <RouterLink to="/map">Voir la carte</RouterLink>

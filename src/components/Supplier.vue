@@ -11,6 +11,14 @@ defineProps({
   checkedAt: {
     type: Date,
     required: true
+  },
+  latitude: {
+    type: Number,
+    required: true
+  },
+  longitude: {
+    type: Number,
+    required: true
   }
 })
 </script>

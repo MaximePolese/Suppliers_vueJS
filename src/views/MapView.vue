@@ -1,9 +1,11 @@
 <script setup>
-import { LMap, LTileLayer } from '@vue-leaflet/vue-leaflet'
+import { suppliers } from '@/data.js'
+import { LMap, LTileLayer, LMarker } from '@vue-leaflet/vue-leaflet'
 import L from 'leaflet'
 import { ref } from 'vue'
 
 const zoom = ref(10)
+
 </script>
 
 <template>
@@ -16,6 +18,8 @@ const zoom = ref(10)
           layer-type="base"
           name="OpenStreetMap"
         ></l-tile-layer>
+        <l-marker v-for="supplier in suppliers" :key="supplier.id" v-bind="supplier"
+                  :lat-lng="[supplier.latitude, supplier.longitude]"></l-marker>
       </l-map>
     </div>
   </div>
