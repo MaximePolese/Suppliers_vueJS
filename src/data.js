@@ -1,18 +1,12 @@
-export const suppliers = [
-  {
-    id: 1,
-    name: 'Fournisseur 1',
-    status: true,
-    checkedAt: new Date(),
-    latitude: 10,
-    longitude: 10
-  },
-  {
-    id: 2,
-    name: 'Fournisseur 2',
-    status: false,
-    checkedAt: new Date(),
-    latitude: 11,
-    longitude: 9.6
+import axios from 'axios'
+
+export async function getSuppliers() {
+  try {
+    const response = await axios.get('https://suppliers.depembroke.fr/api/suppliers')
+    // console.log(response.data.data)
+    return { suppliers: response.data.data, loading: false, error: null }
+  } catch (error) {
+    console.error(error)
+    return { suppliers: [], loading: false, error: error }
   }
-]
+}
