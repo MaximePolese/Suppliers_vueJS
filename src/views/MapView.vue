@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 .map {
   margin: 0 2rem;
 }

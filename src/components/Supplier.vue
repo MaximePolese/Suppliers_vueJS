@@ -1,7 +1,18 @@
 <script setup>
-const name = 'Mon fournisseur'
-const status = false
-const checkedAt = new Date()
+defineProps({
+  name: {
+    type: String,
+    required: true
+  },
+  status: {
+    type: Boolean,
+    required: true
+  },
+  checkedAt: {
+    type: Date,
+    required: true
+  }
+})
 </script>
 
 <template>
