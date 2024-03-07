@@ -19,7 +19,7 @@ setTimeout(() => {
 <template>
   <div class="suppliers">
     <h1>Liste des fournisseurs</h1>
-    <p>{{ loading ? 'Chargement' : 'Suppliers chargés' }}</p>
+    <p>{{ loading ? 'Chargement ...' : 'Suppliers chargés' }}</p>
     <p v-if="errormsg">{{ errormsg }}</p>
     <Supplier v-for="supplier in suppliers" :key="supplier.id" v-bind="supplier"
               :checked-at="format(supplier.checkedAt)" />
