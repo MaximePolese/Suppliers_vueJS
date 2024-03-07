@@ -5,19 +5,19 @@ defineProps({
     required: true
   },
   status: {
-    type: Number,
+    type: Number, // Normalement Boolean
     required: true
   },
   checkedAt: {
-    type: String,
+    type: String, // Normalement Date
     required: true
   },
   latitude: {
-    type: String,
+    type: String, // Normalement Float
     required: true
   },
   longitude: {
-    type: String,
+    type: String, // Normalement Float
     required: true
   }
 })
