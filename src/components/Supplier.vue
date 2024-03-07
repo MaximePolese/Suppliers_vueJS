@@ -5,19 +5,19 @@ defineProps({
     required: true
   },
   status: {
-    type: Boolean,
+    type: Number,
     required: true
   },
   checkedAt: {
-    type: Date,
+    type: String,
     required: true
   },
   latitude: {
-    type: Number,
+    type: String,
     required: true
   },
   longitude: {
-    type: Number,
+    type: String,
     required: true
   }
 })
@@ -26,7 +26,7 @@ defineProps({
 <template>
   <div class="supplier">
     <h1 class="green">{{ name }}</h1>
-    <h3 v-if="status" class="green">En stock</h3>
+    <h3 v-if="status === 1" class="green">En stock</h3>
     <h3 v-else class="red">Indisponible</h3>
     <h5>{{ checkedAt }}</h5>
   </div>
