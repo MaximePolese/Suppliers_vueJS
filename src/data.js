@@ -10,3 +10,33 @@ export async function getSuppliers() {
     return { suppliers: [], loading: false, error: error }
   }
 }
+
+export async function addSupplier(name, checkedAt, status, latitude, longitude) {
+  try {
+    const response = await axios.post('https://suppliers.depembroke.fr/api/suppliers', {
+      'name': name,
+      'checkedAt': checkedAt,
+      'status': status,
+      'latitude': latitude,
+      'longitude': longitude
+    })
+    console.log(response)
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+// export async function addSupplier(name, checkedAt, status, latitude, longitude) {
+//   try {
+//     const response = await axios.post('https://suppliers.depembroke.fr/api/suppliers', {
+//       'name': name,
+//       'checkedAt': checkedAt,
+//       'status': status,
+//       'latitude': latitude,
+//       'longitude': longitude
+//     })
+//     console.log(response)
+//   } catch (error) {
+//     console.error(error)
+//   }
+// }
