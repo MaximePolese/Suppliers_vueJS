@@ -10,6 +10,9 @@ const lon = ref()
 
 function click() {
   addSupplier(name.value, checkedAt, status, lat.value, lon.value)
+  name.value = null
+  lat.value = null
+  lon.value = null
 }
 </script>
 
