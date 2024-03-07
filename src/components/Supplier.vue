@@ -1,5 +1,11 @@
 <script setup>
+import { deleteSupplier } from '@/data.js'
+
 defineProps({
+  id: {
+    type: String,
+    required: true
+  },
   name: {
     type: String,
     required: true
@@ -21,6 +27,10 @@ defineProps({
     required: true
   }
 })
+
+function click(id) {
+  deleteSupplier(id)
+}
 </script>
 
 <template>
@@ -29,6 +39,7 @@ defineProps({
     <h3 v-if="status === 1" class="green">En stock</h3>
     <h3 v-else class="red">Indisponible</h3>
     <h5>{{ checkedAt }}</h5>
+    <button v-on:click="click(id)">DELETE</button>
   </div>
 </template>
 
@@ -41,6 +52,14 @@ defineProps({
 
 h1, h3, h5 {
   margin: 0;
+}
+
+button {
+  width: 6rem;
+  height: 2rem;
+  background-color: red;
+  border-radius: 1rem;
+  margin-top: 1rem;
 }
 
 .red {
