@@ -39,6 +39,10 @@ defineProps({
   margin: 0 0 1rem 0;
 }
 
+h1, h3, h5 {
+  margin: 0;
+}
+
 .red {
   color: red;
 }

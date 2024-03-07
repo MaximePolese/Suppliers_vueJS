@@ -27,8 +27,6 @@ getSuppliers().then(response => {
 
 <style scoped>
 .suppliers {
-  display: flex;
-  flex-direction: column;
   margin: 0 2rem;
 }
 </style>

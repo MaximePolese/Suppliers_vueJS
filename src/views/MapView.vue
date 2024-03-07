@@ -7,7 +7,7 @@ import { ref } from 'vue'
 const suppliers = ref([])
 const loading = ref(true)
 const errormsg = ref(null)
-const zoom = ref(10)
+const zoom = ref(2)
 getSuppliers().then(response => {
   suppliers.value = response.suppliers
   loading.value = response.loading
