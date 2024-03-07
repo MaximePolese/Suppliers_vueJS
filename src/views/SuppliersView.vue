@@ -7,12 +7,13 @@ import { ref } from 'vue'
 const suppliers = ref([])
 const loading = ref(true)
 const errormsg = ref(null)
-
-getSuppliers().then(response => {
-  suppliers.value = response.suppliers
-  loading.value = response.loading
-  errormsg.value = response.error
-})
+setTimeout(() => {
+  getSuppliers().then(response => {
+    suppliers.value = response.suppliers
+    loading.value = response.loading
+    errormsg.value = response.error
+  })
+}, 3000)
 </script>
 
 <template>
