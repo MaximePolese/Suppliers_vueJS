@@ -35,7 +35,6 @@ const grogu = L.icon({
 <template>
   <div class="map">
     <h1>Carte des fournisseurs</h1>
-    <div id="infoposition"></div>
     <p>{{ loading ? 'Chargement ...' : 'Suppliers chargés' }}</p>
     <p v-if="errormsg">{{ errormsg }}</p>
     <div class="leflet-map">

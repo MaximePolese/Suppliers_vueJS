@@ -14,6 +14,14 @@ setTimeout(() => {
     errormsg.value = response.error
   })
 }, 3000)
+
+// function refresh(){
+//   getSuppliers().then(response => {
+//     suppliers.value = response.suppliers
+//     loading.value = response.loading
+//     errormsg.value = response.error
+//   })
+// }
 </script>
 
 <template>
@@ -22,7 +30,7 @@ setTimeout(() => {
     <p>{{ loading ? 'Chargement ...' : 'Suppliers chargés' }}</p>
     <p v-if="errormsg">{{ errormsg }}</p>
     <Supplier v-for="supplier in suppliers" :key="supplier.id" v-bind="supplier"
-              :checked-at="format(supplier.checkedAt)" />
+              :checked-at="format(supplier.checkedAt)" :id="supplier.id.toString()" />
   </div>
 </template>
 

@@ -34,3 +34,18 @@ export async function deleteSupplier(id) {
     console.error(error)
   }
 }
+
+export async function modifySupplier(id, name, checkedAt, status, latitude, longitude) {
+  try {
+    const response = await axios.put('https://suppliers.depembroke.fr/api/suppliers/' + id, {
+      'name': name,
+      'checkedAt': checkedAt,
+      'status': status,
+      'latitude': latitude,
+      'longitude': longitude
+    })
+    console.log(response)
+  } catch (error) {
+    console.error(error)
+  }
+}

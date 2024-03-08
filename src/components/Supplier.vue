@@ -1,5 +1,6 @@
 <script setup>
-import { deleteSupplier } from '@/data.js'
+import { deleteSupplier, modifySupplier } from '@/data.js'
+import { ref } from 'vue'
 
 defineProps({
   id: {
@@ -31,35 +32,106 @@ defineProps({
 function click(id) {
   deleteSupplier(id)
 }
+
+//modifier un supplier
+const newName = ref(null)
+const newCheckedAt = new Date()
+const newStatus = false
+const newLat = ref(null)
+const newLon = ref(null)
+const modify = ref(false)
+
+function modif(id) {
+  console.log('coucou', id, newName.value, newCheckedAt, newStatus, newLat.value, newLon.value)
+  modifySupplier(id, newName.value, newCheckedAt, newStatus, newLat.value, newLon.value)
+  modify.value = false
+}
 </script>
 
 <template>
   <div class="supplier">
-    <h1 class="green">{{ name }}</h1>
-    <h3 v-if="status === 1" class="green">En stock</h3>
-    <h3 v-else class="red">Indisponible</h3>
-    <h5>{{ checkedAt }}</h5>
-    <button v-on:click="click(id)">DELETE</button>
+    <div class="supplier-infos">
+      <div class="infos">
+        <h1 class="green">{{ name }}</h1>
+        <h3 v-if="status === 1" class="green">En stock</h3>
+        <h3 v-else class="red">Indisponible</h3>
+        <h5>{{ checkedAt }}</h5>
+      </div>
+      <div class="bouton">
+        <button id="but1" v-on:click="click(id)">DELETE</button>
+        <button id="but2" v-on:click="modify = true">MODIFY</button>
+      </div>
+    </div>
+    <div v-if="modify" class="formulaire">
+      <form @submit.prevent="modif(id)" class="for">
+        <div style="margin-bottom: 1rem">
+          <label for="name">Supplier name : </label>
+          <input type="text" name="name" id="name" v-model="newName" required />
+        </div>
+        <div style="margin-bottom: 1rem">
+          <label for="latitude">Supplier latitude : </label>
+          <input type="text" name="latitude" id="latitude" v-model="newLat" required />
+        </div>
+        <div style="margin-bottom: 1rem">
+          <label for="longitude">Supplier longitude : </label>
+          <input type="text" name="longitude" id="longitude" v-model="newLon" required />
+        </div>
+        <div style="margin-bottom: 1rem">
+          <label for="status">Spiruline en stock : </label>
+          <input v-on:click="newStatus = !newStatus" type="checkbox" id="status" name="status" />
+        </div>
+        <div>
+          <button id="but2" type="submit">VALIDER</button>
+        </div>
+      </form>
+    </div>
   </div>
 </template>
 
 <style scoped>
 .supplier {
   border: solid var(--color-text);
-  padding: 0 0 1rem 1rem;
   margin: 0 0 1rem 0;
+}
+
+.formulaire {
+  padding: 0 0 0 1rem;
+}
+
+.supplier-infos {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.infos {
+  padding: 0 0 1rem 1rem;
+
 }
 
 h1, h3, h5 {
   margin: 0;
 }
 
-button {
+.bouton {
+  display: flex;
+  align-items: end;
+}
+
+#but1 {
   width: 6rem;
   height: 2rem;
   background-color: red;
   border-radius: 1rem;
-  margin-top: 1rem;
+  margin: 0 1rem 1rem 0;
+}
+
+#but2 {
+  width: 6rem;
+  height: 2rem;
+  background-color: #96D473;
+  border-radius: 1rem;
+  margin: 0 1rem 1rem 0;
 }
 
 .red {
