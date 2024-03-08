@@ -36,14 +36,13 @@ function click(id) {
 //modifier un supplier
 const newName = ref(null)
 const newCheckedAt = new Date()
-const newStatus = false
+const newStatus = ref(false)
 const newLat = ref(null)
 const newLon = ref(null)
 const modify = ref(false)
 
 function modif(id) {
-  console.log('coucou', id, newName.value, newCheckedAt, newStatus, newLat.value, newLon.value)
-  modifySupplier(id, newName.value, newCheckedAt, newStatus, newLat.value, newLon.value)
+  modifySupplier(id, newName.value, newCheckedAt, newStatus.value, newLat.value, newLon.value)
   modify.value = false
 }
 </script>
@@ -78,7 +77,7 @@ function modif(id) {
         </div>
         <div style="margin-bottom: 1rem">
           <label for="status">Spiruline en stock : </label>
-          <input v-on:click="newStatus = !newStatus" type="checkbox" id="status" name="status" />
+          <input type="checkbox" id="status" name="status" v-model="newStatus" />
         </div>
         <div>
           <button id="but2" type="submit">VALIDER</button>

@@ -4,15 +4,16 @@ import { ref } from 'vue'
 
 const name = ref()
 const checkedAt = new Date()
-const status = false
+const status = ref(false)
 const lat = ref()
 const lon = ref()
 
 function click() {
-  addSupplier(name.value, checkedAt, status, lat.value, lon.value)
+  addSupplier(name.value, checkedAt, status.value, lat.value, lon.value)
   name.value = null
   lat.value = null
   lon.value = null
+  status.value = false
 }
 </script>
 
@@ -34,7 +35,7 @@ function click() {
       </div>
       <div style="margin-bottom: 1rem">
         <label for="status">Spiruline en stock : </label>
-        <input v-on:click="status = !status" type="checkbox" id="status" name="status" />
+        <input type="checkbox" id="status" name="status" v-model="status" />
       </div>
       <div>
         <button type="submit">ADD</button>

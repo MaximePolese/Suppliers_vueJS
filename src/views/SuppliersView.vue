@@ -14,14 +14,6 @@ setTimeout(() => {
     errormsg.value = response.error
   })
 }, 3000)
-
-// function refresh(){
-//   getSuppliers().then(response => {
-//     suppliers.value = response.suppliers
-//     loading.value = response.loading
-//     errormsg.value = response.error
-//   })
-// }
 </script>
 
 <template>
