@@ -29,21 +29,27 @@ defineProps({
   }
 })
 
+const emit = defineEmits(['refresh'])
+
 function click(id) {
-  deleteSupplier(id)
+  deleteSupplier(id).then(() => {
+    emit('refresh')
+  })
 }
 
 //modifier un supplier
-const newName = ref(null)
+const newName = ref()
 const newCheckedAt = new Date()
 const newStatus = ref(false)
-const newLat = ref(null)
-const newLon = ref(null)
+const newLat = ref()
+const newLon = ref()
 const modify = ref(false)
 
 function modif(id) {
-  modifySupplier(id, newName.value, newCheckedAt, newStatus.value, newLat.value, newLon.value)
-  modify.value = false
+  modifySupplier(id, newName.value, newCheckedAt, newStatus.value, newLat.value, newLon.value).then(() => {
+    modify.value = false
+    emit('refresh')
+  })
 }
 </script>
 
